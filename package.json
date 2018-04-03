@@ -1,6 +1,6 @@
 {
   "name": "polonaise",
-  "description": "",
+  "description": "Spotify enabled music visualizer for parties.",
   "version": "0.0.0",
   "homepage": "",
   "main": "src",
@@ -36,6 +36,7 @@
     "compression": "^1.7.2",
     "cors": "^2.8.4",
     "helmet": "^3.9.0",
+    "oauthio": "^0.3.5",
     "serve-favicon": "^2.4.5",
     "winston": "^2.4.0"
   },
