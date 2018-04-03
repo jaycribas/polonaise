@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-btn > a {
+  height: 50vh !important;
+}
+
+@media (min-width: 800px) {
+  .container {
+    max-width: 800px;
+    margin: auto;
+  }
+}
