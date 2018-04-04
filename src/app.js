@@ -1,5 +1,5 @@
 const path = require('path');
-const logger = require('winston');
+const logger = require('morgan');
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
