@@ -8,6 +8,7 @@ import EventCode from './views/EventCode'
 import EventCreate from './views/EventCreate'
 import Dashboard from './views/Dashboard'
 
+
 export default class ReactRouter extends Component {
   constructor(props) {
     super(props)
