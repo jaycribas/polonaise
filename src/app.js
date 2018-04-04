@@ -30,6 +30,7 @@ app.configure(configuration());
 // body parsing & logging
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(logger('dev'))
 // app.use(logger.log('debug', 'The Polonaise App'))
 // Host the public folder
 app.use('/', express.static(app.get('public')));
