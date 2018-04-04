@@ -45,6 +45,42 @@ app.configure(services);
 // Set up event channels (see channels.js)
 app.configure(channels);
 
+app.get("/login", function (request, response) {
+  const spotifyScopesArray = ['playlist-read-private', 'playlist-read-collaborative', 'user-library-read', 'user-read-playback-state',
+                       'user-top-read', 'user-read-recently-played', 'user-read-currently-playing', 'streaming'];
+  const authorizeURL = spotifyApi.createAuthorizeURL(spotifyScopesArray);
+  console.log(authorizeURL)
+  response.send(authorizeURL);
+});
+
+// Exchange Authorization Code for an Access Token
+app.get("/callback", function (request, response) {
+  const authorizationCode = request.query.code;
+  console.log(authorizationCode);
+  
+  
+  // Check folks haven't just gone direct to the callback URL
+  if (!authorizationCode) {
+    response.redirect('/');
+  } else {
+    response.sendFile(__dirname + '/public/callback.html');
+  }
+  
+  spotifyApi.authorizationCodeGrant(authorizationCode)
+  .then(function(data) {
+
+    // Set the access token and refresh token
+    spotifyApi.setAccessToken(data.body['access_token']);
+    spotifyApi.setRefreshToken(data.body['refresh_token']);
+
+    // Save the amount of seconds until the access token expired
+    tokenExpirationEpoch = (new Date().getTime() / 1000) + data.body['expires_in'];
+    console.log('Retrieved token. It expires in ' + Math.floor(tokenExpirationEpoch - new Date().getTime() / 1000) + ' seconds!');
+  }, function(err) {
+    console.log('Something went wrong when retrieving the access token!', err.message);
+  });
+});
+
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());
 app.use(express.errorHandler({ logger }));
