@@ -1,11 +1,5 @@
 const path = require('path');
-const favicon = require('serve-favicon');
-const compress = require('compression');
-const cors = require('cors');
-const helmet = require('helmet');
 const logger = require('winston');
-const OAuth = require('oauthio');
-
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
@@ -16,28 +10,25 @@ const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
-const keys = require('../config/keys')
+const keys = require('../config/keys');
+
 
 const app = express(feathers());
 
 // Load app configuration
 app.configure(configuration());
-// security, compression, favicon and body parsing
-app.use(helmet());
-app.use(compress());
+// body parsing & logging
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(logger.log('debug', 'The Polonaise App'))
 // Host the public folder
 app.use('/', express.static(app.get('public')));
 
 // Set up Plugins and providers
 app.configure(express.rest());
 app.configure(socketio());
-
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
-// Initialize OAuthIO Node.js SDK
-OAuth.initialize(keys.oauthPublicKey, keys.oauthSecretKey); 
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Set up event channels (see channels.js)
