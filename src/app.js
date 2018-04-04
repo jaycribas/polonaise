@@ -13,6 +13,16 @@ const channels = require('./channels');
 const keys = require('../config/keys');
 
 
+// init Spotify API wrapper
+const SpotifyWebApi = require('spotify-web-api-node');
+const redirectUri = 'http://localhost:3030/callback';
+let tokenExpirationEpoch;
+const spotifyApi = new SpotifyWebApi({
+  clientId : keys.spotifyClientId,
+  clientSecret : keys.spotifySecretId,
+  redirectUri : redirectUri
+});
+
 const app = express(feathers());
 
 // Load app configuration
