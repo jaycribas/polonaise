@@ -30,6 +30,7 @@
     "start:dev": "concurrently --kill-others-on-fail \"npm run server:dev\" \"npm run client:dev\"",
     "server": "node src/",
     "server:dev": "nodemon src/",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix ./src/client && cd ./src/client && npm run build",
     "mocha": "mocha test/ --recursive --exit"
   },
   "dependencies": {
