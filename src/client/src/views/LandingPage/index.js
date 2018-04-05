@@ -17,6 +17,7 @@ import {Link} from 'react-router';
   component as a child.
 */
 import Login from './Login';
+import Navbar from '../Navbar'
 
 export default class LandingPage extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div className="container">
+        <Navbar />
         <Login />
       </div>
     )

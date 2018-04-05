@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Navbar from '../Navbar'
 
 const EventCreate = () => (
   <div className="container">
-    <h1>CREATE EVENT</h1>
+    <Navbar />
+    <h2>CREATE EVENT</h2>
     <TextField
       hintText="Enter event title"
       fullWidth={true}

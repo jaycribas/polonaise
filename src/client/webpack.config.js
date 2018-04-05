@@ -15,7 +15,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     removeRedundantAttributes: true,
     useShortDoctype: true,
     removeEmptyAttributes: true,
-    removeStyleLinkTypeAttributes: true,
+    removeStyleLinkTypeAttributes: false,
     keepClosingSlash: true,
     minifyJS: true,
     minifyCSS: true,
