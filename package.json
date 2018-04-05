@@ -26,7 +26,8 @@
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "client": "cd src/client && npm start",
     "client:dev": "cd src/client && npm run start:dev",
-    "start": "concurrently --kill-others-on-fail \"npm run server:dev\" \"npm run client:dev\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start:dev": "concurrently --kill-others-on-fail \"npm run server:dev\" \"npm run client:dev\"",
     "server": "node src/",
     "server:dev": "nodemon src/",
     "mocha": "mocha test/ --recursive --exit"
