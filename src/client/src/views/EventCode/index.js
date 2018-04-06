@@ -15,8 +15,10 @@ const EventCode = () => (
       fullWidth={true}
       maxLength="4"
     /><br />
-    <RaisedButton
-      label="Submit" />
+    <a href="/paper-demo">
+      <RaisedButton
+        label="Submit" />
+    </a>
   </div>
 );
 

@@ -31,6 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(app.get('public')));
 app.use('/', express.static(__dirname + '/client/public'));
 
+app.get('/paper-demo', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/public/paper-demo.html'));
+});
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/public/build/index.html'));
 });
