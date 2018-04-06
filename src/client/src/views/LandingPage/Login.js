@@ -16,7 +16,7 @@ const Login = () => (
       backgroundColor="#000"
       labelColor="#fff"
       className="login-btn"
-      href="/auth"
+      href="/create"
       fullWidth={true}
       label="VJ"
       style={btnStyle}
