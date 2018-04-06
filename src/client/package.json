@@ -19,6 +19,7 @@
     "material-ui": "^0.16.4",
     "morgan": "^1.8.1",
     "nodemon": "~1.11.0",
+    "paper": "^0.11.5",
     "prop-types": "^15.6.0",
     "react": "^15.5.7",
     "react-dom": "^15.4.1",
