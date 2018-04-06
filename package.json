@@ -24,7 +24,7 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "client": "cd src/client && npm start",
+    "client": "cd src/client && npm install && npm start",
     "client:dev": "cd src/client && npm run start:dev",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start:dev": "concurrently --kill-others-on-fail \"npm run server:dev\" \"npm run client:dev\"",
