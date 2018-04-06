@@ -14,7 +14,8 @@ const EventCreate = () => (
       fullWidth={true}
     /><br />
     <RaisedButton
-      label="Submit" />
+      label="Submit"
+      href="/dashboard" />
   </div>
 );
 
